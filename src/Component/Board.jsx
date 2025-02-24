@@ -1,17 +1,17 @@
 
 import Square from "./Square"
-import "./style.css"
-import CalculateWinner from "./CalculateWinner"
+// import "./style.css"
+ import calculateWinner from "./CalculateWinner"
 
-function Board({squares, xIsNext}) {
+function Board({squares, xIsNext, onplay}) {
 
 function handleClick(i) {
-    if(squares[i] || CalculateWinner(squares)) {
+    if(squares[i] || calculateWinner(squares)) {
         return;
     }
 
-    const nextSquares = Square.slice();
-    nextSquares[i] = xIsNext ? 'X' : 'O';
+    const nextSquares = squares.slice();
+    nextSquares[i] = xIsNext ? 'X' : '0';
     onplay(nextSquares)
 }
 
