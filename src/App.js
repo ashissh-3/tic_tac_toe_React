@@ -19,12 +19,17 @@ function App() {
 
   function jumpTo(nextMove) {
 
-    setCurrentMove(nextMove)
+    setCurrentMove(nextMove);
 
   }
 
   const moves = history.map((squares, move) => {
-    let description = move > 0 ? `Go to move #${move}` : "Go to game start"
+    let description;
+    if (move > 0) {
+      description = 'Go to move #' + move;
+    } else {
+      description = 'Go to game start';
+    }
 
     return (
       <li key={move}>
@@ -43,7 +48,8 @@ function App() {
     </div>
     <div className='game-info'>
 
-      <ol>      {moves}
+      <ol>    
+          {moves}
       </ol>
     </div>
     
